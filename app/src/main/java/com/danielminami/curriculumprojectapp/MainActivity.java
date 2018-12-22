@@ -1,7 +1,7 @@
 package com.danielminami.curriculumprojectapp;
 
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -50,15 +51,6 @@ public class MainActivity extends AppCompatActivity {
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
-
-/*        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });*/
 
     }
 
@@ -116,16 +108,85 @@ public class MainActivity extends AppCompatActivity {
 
             int page = getArguments().getInt(ARG_SECTION_NUMBER);
 
-            if (page == 3){
-                View rootView = inflater.inflate(R.layout.fragment_3, container, false);
+            if (page == 1){
+                View rootView = inflater.inflate(R.layout.fragment_personal_data, container, false);
+
+                ImageView imgGitHub, imgLinkedIn;
+                TextView txtEmail, txtPhone, txtLocation;
+
+                imgGitHub = (ImageView) rootView.findViewById(R.id.img_github);
+                imgLinkedIn = (ImageView) rootView.findViewById(R.id.img_linkedin);
+                txtEmail = (TextView) rootView.findViewById(R.id.txt_email);
+                txtPhone = (TextView) rootView.findViewById(R.id.txt_phone);
+                txtLocation = (TextView) rootView.findViewById(R.id.txt_location);
+
+                imgGitHub.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String url = getString(R.string.url_github);
+                        Intent i = new Intent(Intent.ACTION_VIEW);
+                        i.setData(Uri.parse(url));
+                        startActivity(i);
+                    }
+                });
+
+                imgLinkedIn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String url = getString(R.string.url_linkedin);
+                        Intent i = new Intent(Intent.ACTION_VIEW);
+                        i.setData(Uri.parse(url));
+                        startActivity(i);
+                    }
+                });
+
+                txtEmail.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String url = getString(R.string.url_linkedin);
+                        Intent i = new Intent(Intent.ACTION_VIEW);
+                        i.setData(Uri.parse(url));
+                        startActivity(i);
+                    }
+                });
+
+                txtPhone.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String number = getString(R.string.phone_number);
+                        Intent i = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", number, null));
+                        startActivity(i);
+                    }
+                });
+
+                txtLocation.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String url = getString(R.string.url_location);
+                        Intent i = new Intent(Intent.ACTION_VIEW);
+                        i.setData(Uri.parse(url));
+                        startActivity(i);
+                    }
+                });
+
+                return rootView;
+
+            } else if (page == 2) {
+
+                View rootView = inflater.inflate(R.layout.fragment_working_experience, container, false);
                 TextView textView = (TextView) rootView.findViewById(R.id.section_label);
                 textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
+
                 return rootView;
-            } else {
-                View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+
+            } else if (page == 3) {
+
+                View rootView = inflater.inflate(R.layout.fragment_working_experience, container, false);
                 TextView textView = (TextView) rootView.findViewById(R.id.section_label);
                 textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
+
                 return rootView;
+
             }
 
         }
