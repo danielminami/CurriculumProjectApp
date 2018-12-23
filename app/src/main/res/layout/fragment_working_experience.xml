@@ -87,7 +87,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
-                    android:text="From:"
+                    android:text="To:"
                     android:textSize="14sp"
                     app:layout_constraintStart_toEndOf="@+id/textView25"
                     app:layout_constraintTop_toBottomOf="@+id/textView21" />
@@ -179,7 +179,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
-                    android:text="From:"
+                    android:text="To:"
                     android:textSize="14sp"
                     app:layout_constraintStart_toEndOf="@+id/textView7"
                     app:layout_constraintTop_toBottomOf="@+id/textView5" />

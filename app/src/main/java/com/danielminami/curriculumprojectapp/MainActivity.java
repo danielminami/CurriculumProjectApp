@@ -74,6 +74,13 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
 
+        if (id == R.id.action_github) {
+            String url = getString(R.string.url_github_curriculum);
+            Intent i = new Intent(Intent.ACTION_VIEW);
+            i.setData(Uri.parse(url));
+            startActivity(i);
+        }
+
         return super.onOptionsItemSelected(item);
     }
 
@@ -140,15 +147,18 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
-                txtEmail.setOnClickListener(new View.OnClickListener() {
+/*                txtEmail.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        String url = getString(R.string.url_linkedin);
-                        Intent i = new Intent(Intent.ACTION_VIEW);
-                        i.setData(Uri.parse(url));
+                        Intent i = new Intent(Intent.ACTION_SENDTO);
+                        i.setType("mailto");
+                        i.putExtra(Intent.EXTRA_EMAIL, getString(R.string.email));
+                        i.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.email_subject));
+                        i.putExtra(Intent.EXTRA_TEXT,"Test");
+                        //i.putExtra(Intent.EXTRA_STREAM, attachment);
                         startActivity(i);
                     }
-                });
+                });*/
 
                 txtPhone.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -179,11 +189,35 @@ public class MainActivity extends AppCompatActivity {
 
             } else if (page == 3) {
 
-                View rootView = inflater.inflate(R.layout.fragment_working_experience, container, false);
+                View rootView = inflater.inflate(R.layout.fragment_education, container, false);
 
                 return rootView;
 
+            } else if (page == 4) {
+
+                View rootView = inflater.inflate(R.layout.fragment_award, container, false);
+
+                TextView txtGitHub = (TextView)  rootView.findViewById(R.id.txt_asf_github);
+
+                txtGitHub.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String url = getString(R.string.url_github_asf);
+                        Intent i = new Intent(Intent.ACTION_VIEW);
+                        i.setData(Uri.parse(url));
+                        startActivity(i);
+                    }
+                });
+
+                return rootView;
+
+            } else if (page == 5) {
+
+                View rootView = inflater.inflate(R.layout.fragment_skill, container, false);
+
+                return rootView;
             }
+
             return null;
         }
     }
@@ -207,8 +241,8 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public int getCount() {
-            // Show 3 total pages.
-            return 3;
+            // Return the total pages.
+            return 5;
         }
     }
 }

@@ -1,12 +1,17 @@
 <resources>
-    <string name="app_name">Curriculum Project App</string>
+    <string name="app_name">Curriculum: Daniel Minami</string>
     <string name="action_settings">Settings</string>
+    <string name="action_github">See the source at GitHub</string>
+    <string name="action_architecture">What is inside?</string>
     <string name="section_format">Hello World from section: %1$d</string>
 
     <string name="url_github">https://github.com/danielminami</string>
+    <string name="url_github_curriculum">https://github.com/danielminami/CurriculumProjectApp</string>
+    <string name="url_github_asf">https://github.com/danielminami/CopilotClub</string>
     <string name="url_linkedin">https://www.linkedin.com/in/daniel-minami-44501222/</string>
     <string name="url_location">https://goo.gl/maps/EE96abige232</string>
     <string name="email">danielminami@hotmail.com</string>
+    <string name="email_subject">You are hired!</string>
     <string name="phone_number">"4162584031"</string>
 
     <!-- TODO: Remove or change this placeholder text -->
