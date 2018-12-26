@@ -81,7 +81,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
                     android:text="Course: "
-                    android:textSize="14sp"
+                    android:textSize="13sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -92,7 +92,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="32dp"
                     android:text="Course: "
-                    android:textSize="14sp"
+                    android:textSize="13sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView46" />
 
@@ -103,7 +103,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="32dp"
                     android:text="Course: "
-                    android:textSize="14sp"
+                    android:textSize="13sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
@@ -114,7 +114,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
                     android:text="Credential"
-                    android:textSize="14sp"
+                    android:textSize="13sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
@@ -125,7 +125,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
                     android:text="Credential"
-                    android:textSize="14sp"
+                    android:textSize="13sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView52" />
 
@@ -136,7 +136,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
                     android:text="Credential"
-                    android:textSize="14sp"
+                    android:textSize="13sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView40" />
 
@@ -147,7 +147,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
                     android:text="Lenght"
-                    android:textSize="14sp"
+                    android:textSize="13sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
@@ -158,7 +158,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
                     android:text="Lenght"
-                    android:textSize="14sp"
+                    android:textSize="13sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView56" />
 
@@ -169,7 +169,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
                     android:text="Lenght"
-                    android:textSize="14sp"
+                    android:textSize="13sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView44" />
 
@@ -180,7 +180,7 @@
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="8dp"
                     android:text="Institution:"
-                    android:textSize="14sp"
+                    android:textSize="13sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -191,7 +191,7 @@
                     android:layout_marginTop="32dp"
                     android:layout_marginEnd="8dp"
                     android:text="Institution:"
-                    android:textSize="14sp"
+                    android:textSize="13sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView47" />
 
@@ -202,7 +202,7 @@
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="8dp"
                     android:text="Institution:"
-                    android:textSize="14sp"
+                    android:textSize="13sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/divider" />
 
@@ -213,7 +213,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
                     android:text="From:"
-                    android:textSize="14sp"
+                    android:textSize="13sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
@@ -224,7 +224,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
                     android:text="From:"
-                    android:textSize="14sp"
+                    android:textSize="13sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView48" />
 
@@ -235,7 +235,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
                     android:text="From:"
-                    android:textSize="14sp"
+                    android:textSize="13sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView36" />
 
@@ -246,7 +246,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
                     android:text="To:"
-                    android:textSize="14sp"
+                    android:textSize="13sp"
                     app:layout_constraintStart_toEndOf="@+id/textView7"
                     app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
@@ -257,7 +257,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
                     android:text="To:"
-                    android:textSize="14sp"
+                    android:textSize="13sp"
                     app:layout_constraintStart_toEndOf="@+id/textView41"
                     app:layout_constraintTop_toBottomOf="@+id/textView37" />
 
@@ -268,7 +268,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
                     android:text="To:"
-                    android:textSize="14sp"
+                    android:textSize="13sp"
                     app:layout_constraintStart_toEndOf="@+id/textView53"
                     app:layout_constraintTop_toBottomOf="@+id/textView49" />
 
@@ -280,6 +280,7 @@
                     android:layout_marginTop="16dp"
                     android:text="Computer Programmer"
                     android:textStyle="bold"
+                    android:textSize="13sp"
                     app:layout_constraintStart_toEndOf="@+id/textView4"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -291,6 +292,7 @@
                     android:layout_marginTop="32dp"
                     android:text="IT Technician"
                     android:textStyle="bold"
+                    android:textSize="13sp"
                     app:layout_constraintStart_toEndOf="@+id/textView48"
                     app:layout_constraintTop_toBottomOf="@+id/textView47" />
 
@@ -302,6 +304,7 @@
                     android:layout_marginTop="32dp"
                     android:text="Information Technology"
                     android:textStyle="bold"
+                    android:textSize="13sp"
                     app:layout_constraintStart_toEndOf="@+id/textView36"
                     app:layout_constraintTop_toBottomOf="@+id/textView35" />
 
@@ -313,6 +316,7 @@
                     android:layout_marginTop="8dp"
                     android:text="2019 Jan"
                     android:textStyle="bold"
+                    android:textSize="13sp"
                     app:layout_constraintStart_toEndOf="@+id/textView6"
                     app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
@@ -324,6 +328,7 @@
                     android:layout_marginTop="8dp"
                     android:text="2002 Jan"
                     android:textStyle="bold"
+                    android:textSize="13sp"
                     app:layout_constraintStart_toEndOf="@+id/textView52"
                     app:layout_constraintTop_toBottomOf="@+id/textView49" />
 
@@ -335,6 +340,7 @@
                     android:layout_marginTop="8dp"
                     android:text="2004 Jan"
                     android:textStyle="bold"
+                    android:textSize="13sp"
                     app:layout_constraintStart_toEndOf="@+id/textView40"
                     app:layout_constraintTop_toBottomOf="@+id/textView37" />
 
@@ -346,6 +352,7 @@
                     android:layout_marginTop="8dp"
                     android:text="2 Years (Fast Track)"
                     android:textStyle="bold"
+                    android:textSize="13sp"
                     app:layout_constraintStart_toEndOf="@+id/textView3"
                     app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
@@ -357,6 +364,7 @@
                     android:layout_marginTop="8dp"
                     android:text="2 Years"
                     android:textStyle="bold"
+                    android:textSize="13sp"
                     app:layout_constraintStart_toEndOf="@+id/textView58"
                     app:layout_constraintTop_toBottomOf="@+id/textView56" />
 
@@ -368,6 +376,7 @@
                     android:layout_marginTop="8dp"
                     android:text="4 Years"
                     android:textStyle="bold"
+                    android:textSize="13sp"
                     app:layout_constraintStart_toEndOf="@+id/textView46"
                     app:layout_constraintTop_toBottomOf="@+id/textView44" />
 
@@ -379,6 +388,7 @@
                     android:layout_marginTop="8dp"
                     android:text="2020 Apr"
                     android:textStyle="bold"
+                    android:textSize="13sp"
                     app:layout_constraintStart_toEndOf="@+id/textView8"
                     app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
@@ -390,6 +400,7 @@
                     android:layout_marginTop="8dp"
                     android:text="2007 Dec"
                     android:textStyle="bold"
+                    android:textSize="13sp"
                     app:layout_constraintStart_toEndOf="@+id/textView42"
                     app:layout_constraintTop_toBottomOf="@+id/textView37" />
 
@@ -401,6 +412,7 @@
                     android:layout_marginTop="8dp"
                     android:text="2003 Dec"
                     android:textStyle="bold"
+                    android:textSize="13sp"
                     app:layout_constraintStart_toEndOf="@+id/textView54"
                     app:layout_constraintTop_toBottomOf="@+id/textView49" />
 
@@ -410,8 +422,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="8dp"
-                    android:text="Sheridan College Canada"
+                    android:text="Sheridan Canada"
                     android:textStyle="bold"
+                    android:textSize="13sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
@@ -423,6 +436,7 @@
                     android:layout_marginEnd="8dp"
                     android:text="USF Brazil"
                     android:textStyle="bold"
+                    android:textSize="13sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView38" />
 
@@ -434,6 +448,7 @@
                     android:layout_marginEnd="8dp"
                     android:text="INTEP Brazil"
                     android:textStyle="bold"
+                    android:textSize="13sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView50" />
 
@@ -445,7 +460,7 @@
                     android:layout_marginTop="8dp"
                     android:text="DIPLOMA"
                     android:textColor="@color/colorPrimary"
-                    android:textSize="14sp"
+                    android:textSize="13sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toEndOf="@+id/textView2"
                     app:layout_constraintTop_toBottomOf="@+id/textView7"
@@ -459,7 +474,7 @@
                     android:layout_marginTop="8dp"
                     android:text="DIPLOMA"
                     android:textColor="@color/colorPrimary"
-                    android:textSize="14sp"
+                    android:textSize="13sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toEndOf="@+id/textView56"
                     app:layout_constraintTop_toBottomOf="@+id/textView53"
@@ -473,7 +488,7 @@
                     android:layout_marginTop="8dp"
                     android:text="BACHELOR"
                     android:textColor="@color/colorPrimary"
-                    android:textSize="14sp"
+                    android:textSize="13sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toEndOf="@+id/textView44"
                     app:layout_constraintTop_toBottomOf="@+id/textView41"
