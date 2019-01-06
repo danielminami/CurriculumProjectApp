@@ -1,5 +1,6 @@
 package com.danielminami.curriculumprojectapp;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
@@ -17,18 +18,20 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
-    /**
-     * The {@link android.support.v4.view.PagerAdapter} that will provide
-     * fragments for each of the sections. We use a
-     * {@link FragmentPagerAdapter} derivative, which will keep every
-     * loaded fragment in memory. If this becomes too memory intensive, it
-     * may be best to switch to a
-     * {@link android.support.v4.app.FragmentStatePagerAdapter}.
-     */
+    ProgressDialog progressDoalog;
+
     private SectionsPagerAdapter mSectionsPagerAdapter;
 
     /**
@@ -41,6 +44,27 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        progressDoalog = new ProgressDialog(MainActivity.this);
+        progressDoalog.setMessage("Loading....");
+        progressDoalog.show();
+
+        /*Create handle for the RetrofitInstance interface*/
+        Repository_Language service = RetrofitClientInstance.getRetrofitInstance().create(Repository_Language.class);
+        Call<List<Model_Language>> call = service.getAllModel_Language();
+        call.enqueue(new Callback<List<Model_Language>>() {
+            @Override
+            public void onResponse(Call<List<Model_Language>> call, Response<List<Model_Language>> response) {
+                progressDoalog.dismiss();
+                generateDataList(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<List<Model_Language>> call, Throwable t) {
+                progressDoalog.dismiss();
+                Toast.makeText(MainActivity.this, "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -52,6 +76,11 @@ public class MainActivity extends AppCompatActivity {
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
+    }
+
+    /*Method to generate List of data using RecyclerView with custom adapter*/
+    private void generateDataList(List<Model_Language> languageList) {
+        System.out.print(languageList);
     }
 
 
@@ -183,7 +212,7 @@ public class MainActivity extends AppCompatActivity {
 
             } else if (page == 2) {
 
-                View rootView = inflater.inflate(R.layout.fragment_working_experience, container, false);
+                View rootView = inflater.inflate(R.layout.fragment_work_experience, container, false);
 
                 return rootView;
 
