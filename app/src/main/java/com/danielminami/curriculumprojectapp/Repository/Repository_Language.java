@@ -1,4 +1,6 @@
-package com.danielminami.curriculumprojectapp;
+package com.danielminami.curriculumprojectapp.Repository;
+
+import com.danielminami.curriculumprojectapp.Model.Model_Language;
 
 import java.util.List;
 import retrofit2.Call;
