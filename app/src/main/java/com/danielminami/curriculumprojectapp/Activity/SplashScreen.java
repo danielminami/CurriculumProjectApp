@@ -1,8 +1,11 @@
-package com.danielminami.curriculumprojectapp;
+package com.danielminami.curriculumprojectapp.Activity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.danielminami.curriculumprojectapp.Activity.MainActivity;
+import com.danielminami.curriculumprojectapp.R;
 
 public class SplashScreen extends AppCompatActivity {
 

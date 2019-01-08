@@ -1,4 +1,4 @@
-package com.danielminami.curriculumprojectapp;
+package com.danielminami.curriculumprojectapp.Model;
 
 import com.google.gson.annotations.SerializedName;
 

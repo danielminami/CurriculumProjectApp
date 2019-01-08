@@ -1,9 +1,11 @@
-package com.danielminami.curriculumprojectapp;
+package com.danielminami.curriculumprojectapp.Activity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 
 import android.support.v4.app.Fragment;
@@ -18,9 +20,14 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.danielminami.curriculumprojectapp.CustomAdapter;
+import com.danielminami.curriculumprojectapp.Model.Model_Language;
+import com.danielminami.curriculumprojectapp.R;
+import com.danielminami.curriculumprojectapp.Repository.Repository_Language;
+import com.danielminami.curriculumprojectapp.RetrofitClientInstance;
 
 import java.util.List;
 
@@ -31,12 +38,9 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity {
 
     ProgressDialog progressDoalog;
-
+    private CustomAdapter adapter;
+    private RecyclerView recyclerView;
     private SectionsPagerAdapter mSectionsPagerAdapter;
-
-    /**
-     * The {@link ViewPager} that will host the section contents.
-     */
     private ViewPager mViewPager;
 
     @Override
@@ -48,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         progressDoalog.setMessage("Loading....");
         progressDoalog.show();
 
-        /*Create handle for the RetrofitInstance interface*/
+
         Repository_Language service = RetrofitClientInstance.getRetrofitInstance().create(Repository_Language.class);
         Call<List<Model_Language>> call = service.getAllModel_Language();
         call.enqueue(new Callback<List<Model_Language>>() {
@@ -68,21 +72,31 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        // Create the adapter that will return a fragment for each of the three
-        // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
-        // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
     }
 
     /*Method to generate List of data using RecyclerView with custom adapter*/
-    private void generateDataList(List<Model_Language> languageList) {
-        System.out.print(languageList);
+    private void generateDataList(List<Model_Language> list) {
+        recyclerView = findViewById(R.id.customRecyclerView);
+        adapter = new CustomAdapter(this,list);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setAdapter(adapter);
     }
 
+    //traditional use of the JSON
+/*    private void generateDataList(List<Model_Language> list) {
+        String name = list.get().getName();
+        recyclerView = findViewById(R.id.customRecyclerView);
+        adapter = new CustomAdapter(this,list);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setAdapter(adapter);
+    }*/
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -113,23 +127,14 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    /**
-     * A placeholder fragment containing a simple view.
-     */
+
     public static class PlaceholderFragment extends Fragment {
-        /**
-         * The fragment argument representing the section number for this
-         * fragment.
-         */
+
         private static final String ARG_SECTION_NUMBER = "section_number";
 
         public PlaceholderFragment() {
         }
 
-        /**
-         * Returns a new instance of this fragment for the given section
-         * number.
-         */
         public static PlaceholderFragment newInstance(int sectionNumber) {
             PlaceholderFragment fragment = new PlaceholderFragment();
             Bundle args = new Bundle();
@@ -251,10 +256,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    /**
-     * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
-     * one of the sections/tabs/pages.
-     */
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
         public SectionsPagerAdapter(FragmentManager fm) {
