@@ -1,4 +1,4 @@
-package com.danielminami.curriculumprojectapp;
+package com.danielminami.curriculumprojectapp.Resources;
 
 import java.util.concurrent.TimeUnit;
 

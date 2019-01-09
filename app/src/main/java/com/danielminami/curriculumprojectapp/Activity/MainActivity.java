@@ -23,11 +23,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.danielminami.curriculumprojectapp.CustomAdapter;
+import com.danielminami.curriculumprojectapp.Resources.CustomAdapter;
 import com.danielminami.curriculumprojectapp.Model.Model_Language;
 import com.danielminami.curriculumprojectapp.R;
 import com.danielminami.curriculumprojectapp.Repository.Repository_Language;
-import com.danielminami.curriculumprojectapp.RetrofitClientInstance;
+import com.danielminami.curriculumprojectapp.Resources.RetrofitClientInstance;
 
 import java.util.List;
 
@@ -76,10 +76,8 @@ public class MainActivity extends AppCompatActivity {
 
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
-
     }
 
-    /*Method to generate List of data using RecyclerView with custom adapter*/
     private void generateDataList(List<Model_Language> list) {
         recyclerView = findViewById(R.id.customRecyclerView);
         adapter = new CustomAdapter(this,list);
@@ -88,15 +86,16 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
     }
 
-    //traditional use of the JSON
-/*    private void generateDataList(List<Model_Language> list) {
-        String name = list.get().getName();
+/*
+    private void generateDataList(List<Model_Language> list) {
+        String name = list.
         recyclerView = findViewById(R.id.customRecyclerView);
         adapter = new CustomAdapter(this,list);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
-    }*/
+    }
+*/
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
