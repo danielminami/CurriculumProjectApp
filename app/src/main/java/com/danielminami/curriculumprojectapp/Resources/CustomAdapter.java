@@ -1,4 +1,4 @@
-package com.danielminami.curriculumprojectapp;
+package com.danielminami.curriculumprojectapp.Resources;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.danielminami.curriculumprojectapp.Model.Model_Language;
+import com.danielminami.curriculumprojectapp.R;
 
 import java.util.List;
 
