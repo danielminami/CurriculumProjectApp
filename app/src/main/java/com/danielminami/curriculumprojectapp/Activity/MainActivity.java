@@ -3,6 +3,8 @@ package com.danielminami.curriculumprojectapp.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -29,6 +31,7 @@ import com.danielminami.curriculumprojectapp.R;
 import com.danielminami.curriculumprojectapp.Repository.Repository_Language;
 import com.danielminami.curriculumprojectapp.Resources.RetrofitClientInstance;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -38,8 +41,8 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity {
 
     ProgressDialog progressDoalog;
-    private CustomAdapter adapter;
-    private RecyclerView recyclerView;
+    public CustomAdapter adapter;
+    public RecyclerView recyclerView;
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private ViewPager mViewPager;
 
@@ -48,26 +51,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        progressDoalog = new ProgressDialog(MainActivity.this);
-        progressDoalog.setMessage("Loading....");
-        progressDoalog.show();
 
-
-        Repository_Language service = RetrofitClientInstance.getRetrofitInstance().create(Repository_Language.class);
-        Call<List<Model_Language>> call = service.getAllModel_Language();
-        call.enqueue(new Callback<List<Model_Language>>() {
-            @Override
-            public void onResponse(Call<List<Model_Language>> call, Response<List<Model_Language>> response) {
-                progressDoalog.dismiss();
-                generateDataList(response.body());
-            }
-
-            @Override
-            public void onFailure(Call<List<Model_Language>> call, Throwable t) {
-                progressDoalog.dismiss();
-                Toast.makeText(MainActivity.this, "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show();
-            }
-        });
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -76,14 +60,12 @@ public class MainActivity extends AppCompatActivity {
 
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
+
+
     }
 
-    private void generateDataList(List<Model_Language> list) {
-        recyclerView = findViewById(R.id.customRecyclerView);
-        adapter = new CustomAdapter(this,list);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setAdapter(adapter);
+    private void generateDataList(ArrayList<Model_Language> list) {
+
     }
 
 /*
@@ -247,11 +229,39 @@ public class MainActivity extends AppCompatActivity {
             } else if (page == 5) {
 
                 View rootView = inflater.inflate(R.layout.fragment_skill, container, false);
+                ((MainActivity)getActivity()).recyclerView = rootView.findViewById(R.id.customRecyclerView);
+                ((MainActivity)getActivity()).adapter = new CustomAdapter(getActivity(),new ArrayList<Model_Language>());
+                RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
+                ((MainActivity)getActivity()).recyclerView.setLayoutManager(layoutManager);
+                ((MainActivity)getActivity()).recyclerView.setAdapter(((MainActivity)getActivity()).adapter);
+
+
+                Repository_Language service = RetrofitClientInstance.getRetrofitInstance().create(Repository_Language.class);
+                Call<List<Model_Language>> call = service.getAllModel_Language();
+                call.enqueue(new Callback<List<Model_Language>>() {
+                    @Override
+                    public void onResponse(Call<List<Model_Language>> call, Response<List<Model_Language>> response) {
+                        //generateDataList(new ArrayList<Model_Language>(response.body()));
+                        ((MainActivity)getActivity()).adapter.setList(new ArrayList<Model_Language>(response.body()));
+                        ((MainActivity)getActivity()).adapter.notifyDataSetChanged();
+                    }
+
+                    @Override
+                    public void onFailure(Call<List<Model_Language>> call, Throwable t) {
+                        Toast.makeText(getActivity(), "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show();
+                    }
+                });
 
                 return rootView;
             }
 
             return null;
+        }
+
+        @Override
+        public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+            super.onViewCreated(view, savedInstanceState);
+
         }
     }
 

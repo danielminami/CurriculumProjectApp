@@ -10,14 +10,19 @@ import android.widget.TextView;
 import com.danielminami.curriculumprojectapp.Model.Model_Language;
 import com.danielminami.curriculumprojectapp.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomViewHolder> {
 
-    private List<Model_Language> dataList;
+    private ArrayList<Model_Language> dataList;
     private Context context;
 
-    public CustomAdapter(Context context,List<Model_Language> dataList){
+    public void setList(ArrayList<Model_Language> list) {
+        dataList = list;
+    }
+
+    public CustomAdapter(Context context,ArrayList<Model_Language> dataList){
         this.context = context;
         this.dataList = dataList;
     }
@@ -41,7 +46,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
     @Override
     public CustomViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View view = layoutInflater.inflate(R.layout.fragment_skill, parent, false);
+        View view = layoutInflater.inflate(R.layout.view_holder_language, parent, false);
         return new CustomViewHolder(view);
     }
 
