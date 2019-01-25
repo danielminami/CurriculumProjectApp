@@ -1,5 +1,6 @@
 package com.danielminami.curriculumprojectapp.Activity;
 
+import android.app.FragmentTransaction;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
@@ -40,7 +41,7 @@ import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
-    ProgressDialog progressDoalog;
+    public ProgressDialog progressDoalog;
     public CustomAdapter adapter;
     public RecyclerView recyclerView;
     private SectionsPagerAdapter mSectionsPagerAdapter;
@@ -50,8 +51,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -88,12 +87,9 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }
@@ -228,7 +224,9 @@ public class MainActivity extends AppCompatActivity {
 
             } else if (page == 5) {
 
+
                 View rootView = inflater.inflate(R.layout.fragment_skill, container, false);
+
                 ((MainActivity)getActivity()).recyclerView = rootView.findViewById(R.id.customRecyclerView);
                 ((MainActivity)getActivity()).adapter = new CustomAdapter(getActivity(),new ArrayList<Model_Language>());
                 RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
@@ -244,11 +242,13 @@ public class MainActivity extends AppCompatActivity {
                         //generateDataList(new ArrayList<Model_Language>(response.body()));
                         ((MainActivity)getActivity()).adapter.setList(new ArrayList<Model_Language>(response.body()));
                         ((MainActivity)getActivity()).adapter.notifyDataSetChanged();
+
                     }
 
                     @Override
                     public void onFailure(Call<List<Model_Language>> call, Throwable t) {
                         Toast.makeText(getActivity(), "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show();
+
                     }
                 });
 
